@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Employee\ModelHasRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $connection = 'mysql';
 
@@ -49,24 +47,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function employee()
-    {
-        return $this->belongsTo(Employee::class, 'id', 'user_id')->with(['employee_group']);
-    }
-
-    public function client()
-    {
-        return $this->belongsTo(Client::class, 'id', 'user_id');
-    }
-
-    public function AauthAcessToken()
-    {
-        return $this->hasMany(OauthAccessToken::class, 'user_id', 'id');
-    }
-
-    public function model_has_roles()
-    {
-        return $this->belongsTo(ModelHasRole::class, 'id', 'model_id');
-    }
 }

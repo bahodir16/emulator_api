@@ -14,22 +14,22 @@ class OrderProccessingController extends Controller
             "success"=> 0,
             "message"=> "string",
             "order_info" => $getOrderObject,
-            "driver_info"=>[
+            "driver_info"=> [
                 "id" => "string",
                 "name"=> "string",
                 "nick_name"=> "string",
                 "phone"=> "string"
             ],
-              "auto_info" => [
+            "auto_info" => [
                 "model"=> "string",
                 "color"=> "string",
                 "number"=> "string"
-        ],
-              "status" => "New"
+            ],
+            "status" => "New"
         ]);
 
     }
-    public function createOrUpdate()
+    public function createOrUpdate(mixed $object, string $api_key)
     {
 
     }
