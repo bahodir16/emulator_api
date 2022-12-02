@@ -22,6 +22,6 @@ Route::group(['prefix' => '/tsv1/processing'],function () {
     Route::get('/get', [OrderProccessingController::class, 'get_order_info']);
 });
 
-Route::post('/calculate', [CalculateController::class, 'calcluate']);
-Route::post('/call', [CallController::class, 'call']);
+Route::post('/tsv1/owner/price', [CalculateController::class, 'calcluate']);
+Route::post('/tsv1/owner/call', [CallController::class, 'call']);
 
