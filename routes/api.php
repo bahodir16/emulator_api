@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\API\v1\CalculateController;
+use App\Http\Controllers\API\CallController;
 use App\Http\Controllers\API\v1\OrderProccessingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => '/tsv1/processing'],function () {
     Route::get('/get', [OrderProccessingController::class, 'get_order_info']);
 });
+
+Route::post('/calculate', [CalculateController::class, 'calcluate']);
+Route::post('/call', [CallController::class, 'call']);
 
